@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 130891880}
   - component: {fileID: 130891881}
   - component: {fileID: 130891882}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +243,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 186181674}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RightWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -361,7 +361,7 @@ GameObject:
   - component: {fileID: 936988457}
   - component: {fileID: 936988458}
   - component: {fileID: 936988459}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -470,7 +470,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 983389848}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LeftWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -523,7 +523,7 @@ Transform:
   m_GameObject: {fileID: 1117657147}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1226891637}
@@ -601,7 +601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d3a8d817758654bb0b7bc57bdcc048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpVelocity: 9
+  jumpVelocity: 7
   fallMultiplier: 5
   lowJumpMultiplier: 5
 --- !u!114 &1117657154
@@ -618,13 +618,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   onGround: 0
   onWall: 0
-  collisionRadius: 0.25
-  bottomOffset: {x: 0, y: 0}
-  rightOffset: {x: 0, y: 0}
-  leftOffset: {x: 0, y: 0}
+  collisionRadius: 0.17
+  bottomOffset: {x: 0, y: -0.6}
+  rightOffset: {x: 0.7, y: 0}
+  leftOffset: {x: -0.7, y: 0}
 --- !u!1 &1226891636
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,8 +718,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1578953836}
-  m_Layer: 0
-  m_Name: Floor
+  m_Layer: 3
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -752,7 +752,7 @@ GameObject:
   - component: {fileID: 1778072694}
   - component: {fileID: 1778072696}
   - component: {fileID: 1778072697}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
