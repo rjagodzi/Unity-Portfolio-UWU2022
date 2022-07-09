@@ -7,13 +7,14 @@ public class Movement : MonoBehaviour
     private Collision collision;
     public Collision Collision => collision;
     private Rigidbody2D rb;
+    private Animator playerAnimator;
 
     public string HorizontalAxis;
     public string VerticalAxis;
-
+    public GameObject shadow;
     public float normalSpeed = 10;
     public float slideSpeed = 5;
-    public float jumpForce = 50;
+    public float jumpForce = 10;
     public float wallJumpLerp = 10;
     public float dashSpeed = 20f;
     public float dashCooldown = 1f;
@@ -33,6 +34,7 @@ public class Movement : MonoBehaviour
         canDash = true;
         collision = GetComponent<Collision>();
         rb = GetComponent<Rigidbody2D>();
+        playerAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -43,24 +45,26 @@ public class Movement : MonoBehaviour
         float xRaw = Input.GetAxisRaw(HorizontalAxis);
         float yRaw = Input.GetAxisRaw(VerticalAxis);
         Vector2 direction = new Vector2(x, y);
-
-        
             
         Walk(direction);
         Dash();
-        
 
         if (collision.onGround)
         {
             wallJumped = false;
             GetComponent<Jumping>().enabled = true;
+            shadow.gameObject.SetActive(true);
+        }
+
+        if (!collision.onGround)
+        {
+            shadow.gameObject.SetActive(false);
         }
 
         if (collision.onWall && !collision.onGround && !wallJumped)
         {
-            jumpForce = 15;
-            StopCoroutine(DisableMovement(0));
-            StartCoroutine(DisableMovement(0.5f));
+            //StopCoroutine(DisableMovement(0));
+            StartCoroutine(DisableMovement(0.2f));
             wallJumped = true;
             WallSlide();
         }
@@ -73,10 +77,10 @@ public class Movement : MonoBehaviour
 
     public void DoJump()
     {
-        if (collision.onGround)
-        {
+      //  if (collision.onGround)
+      //  {
             Jump(Vector2.up, false);
-        }
+      //  }
 
 
         if (collision.onWall && !collision.onGround)
@@ -102,6 +106,19 @@ public class Movement : MonoBehaviour
         {
             rb.velocity = Vector2.Lerp(rb.velocity, (new Vector2(direction.x * currentMovementSpeed, rb.velocity.y)), wallJumpLerp * Time.deltaTime);
         }
+
+        if(collision.onGround && rb.velocity.x > 0)
+        {
+            playerAnimator.SetTrigger("isWalkingRight");
+        }
+        else if(collision.onGround && rb.velocity.x < 0)
+        {
+            playerAnimator.SetTrigger("isWalkingLeft");
+        }
+        else
+        {
+            playerAnimator.SetTrigger("isIdle");
+        }
     }
 
     private void WallSlide()
@@ -111,12 +128,16 @@ public class Movement : MonoBehaviour
 
     private void WallJump()
     {
+        jumpForce = 15;
+
+        wallJumped = true;
+
         StopCoroutine(DisableMovement(0));
         StartCoroutine(DisableMovement(.1f));
 
-         Vector2 wallDirection = collision.onRightWall ? Vector2.left : Vector2.right;
-        Jump((Vector2.up * 5f + wallDirection), true);
-        wallJumped = true;
+        Vector2 wallDirection = collision.onRightWall ? Vector2.left : Vector2.right;
+        Jump((Vector2.up / 2f + wallDirection / 0.5f), true);
+        
     }
 
     private void Jump(Vector2 direction, bool wall)
