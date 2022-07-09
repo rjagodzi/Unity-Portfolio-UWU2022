@@ -589,6 +589,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90212ec2f43bd2f419d4cacffc33e035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 1117657150}
+  speed: 10
+  slideSpeed: 5
+  jumpForce: 10
+  wallJumpLerp: 10
+  dashSpeed: 20
 --- !u!114 &1117657153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -601,7 +607,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d3a8d817758654bb0b7bc57bdcc048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpVelocity: 7
   fallMultiplier: 5
   lowJumpMultiplier: 5
 --- !u!114 &1117657154
@@ -621,6 +626,8 @@ MonoBehaviour:
     m_Bits: 8
   onGround: 0
   onWall: 0
+  onRightWall: 0
+  onLeftWall: 0
   collisionRadius: 0.17
   bottomOffset: {x: 0, y: -0.6}
   rightOffset: {x: 0.7, y: 0}

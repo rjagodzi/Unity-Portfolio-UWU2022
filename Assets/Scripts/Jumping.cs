@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Jumping : MonoBehaviour
 {
-    public float jumpVelocity = 5;
+    Rigidbody2D rb;
+
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
-    Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Awake()
@@ -18,11 +18,6 @@ public class Jumping : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Jump"))
-        {
-            rb.velocity = Vector2.up * jumpVelocity;
-        }
-
         if(rb.velocity.y < 0)
         {
             rb.velocity += Vector2.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;

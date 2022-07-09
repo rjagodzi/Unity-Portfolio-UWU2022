@@ -8,6 +8,8 @@ public class Collision : MonoBehaviour
 
     public bool onGround;
     public bool onWall;
+    public bool onRightWall;
+    public bool onLeftWall;
     //public bool onRightWall;
     //public bool onLeftWall;
 
@@ -26,6 +28,8 @@ public class Collision : MonoBehaviour
         onGround = Physics2D.OverlapCircle((Vector2)transform.position + bottomOffset, collisionRadius, groundLayer);
         onWall = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, groundLayer)
             || Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, groundLayer);
+        onRightWall = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, groundLayer);
+        onLeftWall = Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, groundLayer);
     }
 
     void OnDrawGizmos()
