@@ -589,12 +589,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90212ec2f43bd2f419d4cacffc33e035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 1117657150}
-  speed: 10
-  slideSpeed: 5
-  jumpForce: 10
+  normalSpeed: 10
+  slideSpeed: 3
+  jumpForce: 15
   wallJumpLerp: 10
-  dashSpeed: 20
+  dashSpeed: 40
+  dashCooldown: 0.5
+  dashLength: 0.1
+  currentMovementSpeed: 0
+  wallSlide: 0
+  canMove: 1
+  wallJumped: 0
+  canDash: 0
 --- !u!114 &1117657153
 MonoBehaviour:
   m_ObjectHideFlags: 0

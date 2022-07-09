@@ -7,21 +7,26 @@ public class Movement : MonoBehaviour
     private Collision collision;
     private Rigidbody2D rb;
 
-    public float speed = 10;
+    public float normalSpeed = 10;
     public float slideSpeed = 5;
     public float jumpForce = 50;
     public float wallJumpLerp = 10;
-    public float dashSpeed = 20;
+    public float dashSpeed = 20f;
+    public float dashCooldown = 1f;
+    public float dashLength = 0.5f;
+    public float currentMovementSpeed;
 
     //private bool wallGrab;
     public bool wallSlide;
     public bool canMove = true;
     public bool wallJumped;
-    public bool hasDashed = false;
+    public bool canDash;
 
     // Start is called before the first frame update
     void Start()
     {
+        currentMovementSpeed = normalSpeed;
+        canDash = true;
         collision = GetComponent<Collision>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -35,7 +40,11 @@ public class Movement : MonoBehaviour
         float yRaw = Input.GetAxisRaw("Vertical");
         Vector2 direction = new Vector2(x, y);
 
+        
+            
         Walk(direction);
+        Dash();
+        
 
         if (collision.onGround)
         {
@@ -43,16 +52,20 @@ public class Movement : MonoBehaviour
             GetComponent<Jumping>().enabled = true;
         }
 
-        if (collision.onWall && !collision.onGround)
+        if (collision.onWall && !collision.onGround && !wallJumped)
         {
-            wallSlide = true;
+            jumpForce = 15;
+            StopCoroutine(DisableMovement(0));
+            StartCoroutine(DisableMovement(0.5f));
+            wallJumped = true;
             WallSlide();
         }
+        
+        //if(!collision.onWall && collision.onGround)
+        //{
+        //    wallSlide = false;
+        //}
 
-        if(!collision.onWall && collision.onGround)
-        {
-            wallSlide = false;
-        }
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -68,18 +81,12 @@ public class Movement : MonoBehaviour
             }
             
         }
-
-        if(Input.GetButtonDown("Fire3"))
-        {
-            if(xRaw != 0 || yRaw != 0)
-            {
-                Dash(xRaw, yRaw);
-            }
-        }
     }
 
     private void Walk (Vector2 direction)
     {
+        jumpForce = 10;
+
         if (!canMove)
         {
             return;
@@ -87,11 +94,11 @@ public class Movement : MonoBehaviour
 
         if (!wallJumped)
         {
-            rb.velocity = (new Vector2(direction.x * speed, rb.velocity.y));
+            rb.velocity = (new Vector2(direction.x * currentMovementSpeed, rb.velocity.y));
         }
         else
         {
-            rb.velocity = Vector2.Lerp(rb.velocity, (new Vector2(direction.x * speed, rb.velocity.y)), wallJumpLerp * Time.deltaTime);
+            rb.velocity = Vector2.Lerp(rb.velocity, (new Vector2(direction.x * currentMovementSpeed, rb.velocity.y)), wallJumpLerp * Time.deltaTime);
         }
     }
 
@@ -116,12 +123,17 @@ public class Movement : MonoBehaviour
         rb.velocity += direction * jumpForce;
     }
 
-    private void Dash(float x, float y)
+    private void Dash()
     {
-        rb.velocity = Vector2.zero;
-        Vector2 direction = new Vector2(x, y);
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        {
+            currentMovementSpeed = dashSpeed;
+            canDash = false;
 
-        rb.velocity += direction.normalized * dashSpeed;
+            StartCoroutine(DashCooldownCounter());
+            StartCoroutine(DashLengthCounter());
+
+        }
     }
 
     IEnumerator DisableMovement(float time)
@@ -129,5 +141,20 @@ public class Movement : MonoBehaviour
         canMove = false;
         yield return new WaitForSeconds(time);
         canMove = true;
+        wallJumped = false;
+    }
+
+    IEnumerator DashCooldownCounter()
+    {
+        yield return new WaitForSeconds(dashCooldown);
+
+        canDash = true;
+    }
+
+    IEnumerator DashLengthCounter()
+    {
+        yield return new WaitForSeconds(dashLength);
+
+        currentMovementSpeed = normalSpeed;
     }
 }
