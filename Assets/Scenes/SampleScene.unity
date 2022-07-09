@@ -362,6 +362,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &537750534 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2007179661047190884, guid: 9c6dbc18cbd6e4c1cbe2dbb9e36bfc31, type: 3}
+  m_PrefabInstance: {fileID: 1814978850}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2433f10ccef87480d81ccae15a93448e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &717409757
 GameObject:
   m_ObjectHideFlags: 0
@@ -1042,6 +1053,14 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5275698846958545742, guid: 9c6dbc18cbd6e4c1cbe2dbb9e36bfc31, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275698846958545742, guid: 9c6dbc18cbd6e4c1cbe2dbb9e36bfc31, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275698846958545742, guid: 9c6dbc18cbd6e4c1cbe2dbb9e36bfc31, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.5857053
       objectReference: {fileID: 0}
@@ -1262,6 +1281,14 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5275698846958545742, guid: 9c6dbc18cbd6e4c1cbe2dbb9e36bfc31, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275698846958545742, guid: 9c6dbc18cbd6e4c1cbe2dbb9e36bfc31, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275698846958545742, guid: 9c6dbc18cbd6e4c1cbe2dbb9e36bfc31, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.2
       objectReference: {fileID: 0}
@@ -1370,9 +1397,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Player1: {fileID: 304504505}
-  m_Player2: {fileID: 0}
+  m_Player2: {fileID: 537750534}
   m_Ball: {fileID: 2082517604}
   m_MainCamera: {fileID: 519420031}
+  m_Parallax: {fileID: 1999852442}
 --- !u!4 &1882930472
 Transform:
   m_ObjectHideFlags: 0
@@ -1407,6 +1435,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UpMarker: {fileID: 987507595}
   m_DownMarker: {fileID: 1138492907}
+--- !u!114 &1999852442 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2189914390298721932, guid: 67d763ba315a0460f9396e7d4b23f63b, type: 3}
+  m_PrefabInstance: {fileID: 6970452954120427951}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43b1fa99c110847f3809e64bd723998f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2028730945
 GameObject:
   m_ObjectHideFlags: 0

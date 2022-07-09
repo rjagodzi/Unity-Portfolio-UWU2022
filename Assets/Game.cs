@@ -23,14 +23,21 @@ public class Game : MonoBehaviour
     [SerializeField] private Camera m_MainCamera;
     public static Camera MainCamera => Instance.m_MainCamera;
 
+    [SerializeField] private ParallaxController m_Parallax;
+    
 
     public void Update()
     {
-        if (m_Ball.transform.position.y >= 1f)
+        float yPos = m_Player1.transform.position.y;
+        if(m_Player2.transform.position.y > yPos)
         {
-            Vector3 midPoint = (m_Player1.transform.position + m_Ball.transform.position) / 2;
-            m_MainCamera.transform.position = new Vector3(m_MainCamera.transform.position.x, m_Ball.transform.position.y - 1f, m_MainCamera.transform.position.z);
+            yPos = m_Player2.transform.position.y;
         }
+        if (yPos >= 1f)
+        {
+            m_MainCamera.transform.position = new Vector3(m_MainCamera.transform.position.x, yPos - 1f, m_MainCamera.transform.position.z);
+        }
+        m_Parallax.UpdateParallax(yPos);
     }
 
 }
