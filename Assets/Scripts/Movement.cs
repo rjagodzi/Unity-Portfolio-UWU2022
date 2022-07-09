@@ -7,7 +7,7 @@ public class Movement : MonoBehaviour
     private Collision collision;
     public Collision Collision => collision;
     private Rigidbody2D rb;
-    private Animator playerAnimator;
+    [SerializeField] private Animator playerAnimator;
 
     public string HorizontalAxis;
     public string VerticalAxis;
@@ -34,7 +34,7 @@ public class Movement : MonoBehaviour
         canDash = true;
         collision = GetComponent<Collision>();
         rb = GetComponent<Rigidbody2D>();
-        playerAnimator = GetComponent<Animator>();
+     //   playerAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
