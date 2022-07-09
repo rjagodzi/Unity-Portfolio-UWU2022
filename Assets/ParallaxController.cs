@@ -35,6 +35,7 @@ public class ParallaxController : MonoBehaviour
             {
                 Transform layer = m_Layers[i];
                 float ypos = Mathf.Lerp(m_BallTransform.position.y-1 + m_TopLayerHeight, m_BottomLayerHeight, (float)i / (float)m_Layers.Count);
+                ypos -= ypos / 100f;
                 layer.position = new Vector3(layer.position.x, ypos, layer.position.z);
             }
         }
