@@ -105,14 +105,14 @@ public class Movement : MonoBehaviour
         StopCoroutine(DisableMovement(0));
         StartCoroutine(DisableMovement(.1f));
 
-        Vector2 wallDirection = collision.onRightWall ? Vector2.left : Vector2.right;
-        Jump((Vector2.up / 1.5f + wallDirection / 1.5f), true);
+         Vector2 wallDirection = collision.onRightWall ? Vector2.left : Vector2.right;
+        Jump((Vector2.up * 5f + wallDirection), true);
         wallJumped = true;
     }
 
     private void Jump(Vector2 direction, bool wall)
     {
-        rb.velocity = new Vector2(rb.velocity.x, 0);
+        rb.velocity = new Vector2(wall?0:rb.velocity.x, 0);
         rb.velocity += direction * jumpForce;
     }
 
