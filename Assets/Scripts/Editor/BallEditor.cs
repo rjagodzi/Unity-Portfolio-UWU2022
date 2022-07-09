@@ -13,16 +13,17 @@ public class BallEditor : Editor
         script = target as Ball;
     }
 
-    private float m_DebugForce;
-    private Vector2 m_DebugDirection;
+   
 
     public override void OnInspectorGUI()
     {
-        m_DebugDirection = EditorGUILayout.Vector2Field("Direction", m_DebugDirection);
-        m_DebugForce = EditorGUILayout.FloatField("Force", m_DebugForce);
+        script.DebugDirection = EditorGUILayout.Vector2Field("Direction", script.DebugDirection);
+        script.DebugForce = EditorGUILayout.FloatField("Force", script.DebugForce);
+        EditorGUILayout.LabelField("Velocity: " + script.RigidBody.velocity.ToString());
+        EditorGUILayout.LabelField("AngularVelocity: " + script.RigidBody.angularVelocity.ToString());
         if(GUILayout.Button("Kick"))
         {
-            script.Kick(m_DebugDirection, m_DebugForce);
+            script.Kick(script.DebugDirection, script.DebugForce, 0f);
         }
         if(GUILayout.Button("Stop"))
         {

@@ -5,7 +5,11 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     private Collision collision;
+    public Collision Collision => collision;
     private Rigidbody2D rb;
+
+    public string HorizontalAxis;
+    public string VerticalAxis;
 
     public float normalSpeed = 10;
     public float slideSpeed = 5;
@@ -34,10 +38,10 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
-        float xRaw = Input.GetAxisRaw("Horizontal");
-        float yRaw = Input.GetAxisRaw("Vertical");
+        float x = Input.GetAxis(HorizontalAxis);
+        float y = Input.GetAxis(VerticalAxis);
+        float xRaw = Input.GetAxisRaw(HorizontalAxis);
+        float yRaw = Input.GetAxisRaw(VerticalAxis);
         Vector2 direction = new Vector2(x, y);
 
         
@@ -65,21 +69,19 @@ public class Movement : MonoBehaviour
         //{
         //    wallSlide = false;
         //}
+    }
 
-
-        if (Input.GetButtonDown("Jump"))
+    public void DoJump()
+    {
+        if (collision.onGround)
         {
-            if (collision.onGround)
-            {
-                Jump(Vector2.up, false);
-            }
-            
+            Jump(Vector2.up, false);
+        }
 
-            if(collision.onWall && !collision.onGround)
-            {
-                WallJump();
-            }
-            
+
+        if (collision.onWall && !collision.onGround)
+        {
+            WallJump();
         }
     }
 
