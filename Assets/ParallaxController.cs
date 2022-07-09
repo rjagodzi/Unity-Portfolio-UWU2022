@@ -31,14 +31,20 @@ public class ParallaxController : MonoBehaviour
     {
         if (m_BallTransform.position.y >= 1f)
         {
-
+            for (int i = 0; i < m_Layers.Count; i++)
+            {
+                Transform layer = m_Layers[i];
+                float ypos = Mathf.Lerp(m_BallTransform.position.y-1 + m_TopLayerHeight, m_BottomLayerHeight, (float)i / (float)m_Layers.Count);
+                layer.position = new Vector3(layer.position.x, ypos, layer.position.z);
+            }
         }
         else
         {
             for(int i=0;i<m_Layers.Count;i++)
             {
                 Transform layer = m_Layers[i];
-                layer.position = new Vector3(layer.position.x, Mathf.Lerp(m_TopLayerHeight, m_BottomLayerHeight, i+1 * 1/m_Layers.Count), layer.position.z);
+                float ypos = Mathf.Lerp(m_TopLayerHeight, m_BottomLayerHeight, (float)i / (float)m_Layers.Count);
+                layer.position = new Vector3(layer.position.x, ypos, layer.position.z);
             }
         }
     }
