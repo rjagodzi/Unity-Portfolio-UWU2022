@@ -10,6 +10,7 @@ public class Ball : MonoBehaviour
     [SerializeField] private Rigidbody2D m_RigidBody;
     public Rigidbody2D RigidBody => m_RigidBody;
     [SerializeField] private Collider2D m_Collider;
+    public Collider2D Collider => m_Collider;
     [SerializeField] private bool m_IsHold;
     [SerializeField] private float m_BaseAngularVelocity;
     [SerializeField] private Transform m_AimingDirection;

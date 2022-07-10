@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Camera m_MainCamera;
 
     [SerializeField] private string ActionButton;
+    [SerializeField] private string GoalButton;
 
     public bool HasBall
     {
@@ -21,8 +22,11 @@ public class Player : MonoBehaviour
 
     [Header("Components")]
     [SerializeField] private Collider2D m_OwnCollider;
+    public Collider2D OwnCollider => m_OwnCollider;
     [SerializeField] private Rigidbody2D m_RigidBody;
+    public Rigidbody2D RigidBody => m_RigidBody;
     [SerializeField] private Movement m_Movement;
+    public Movement Movement => m_Movement;
 
     public void Start()
     {
@@ -69,6 +73,7 @@ public class Player : MonoBehaviour
     {
         if(collision.collider.gameObject.layer == LayerMask.NameToLayer("Ball"))
         {
+            Debug.Log("A:" + collision.collider.name + "  B:" + collision.otherCollider.name);
             m_RigidBody.bodyType = RigidbodyType2D.Kinematic;
             StopCoroutine(DelayedGravity(0));
             StartCoroutine(DelayedGravity(0.5f));
@@ -80,7 +85,8 @@ public class Player : MonoBehaviour
             m_Ball.RigidBody.angularVelocity = 0;
             m_Ball.Stop();
             m_Ball.SetArrowVisibility(true);
-            Physics2D.IgnoreCollision(m_OwnCollider, m_BallCollider, true);
+          // Game.Instance.PlayersIgnoreCollision(m_BallCollider, true);
+           Physics2D.IgnoreCollision(m_OwnCollider, m_BallCollider, true);
         }
     }
 
@@ -114,6 +120,10 @@ public class Player : MonoBehaviour
             {
                 m_Ball.SetAppliedForce(0);
             }
+            if(Input.GetButtonDown(GoalButton))
+            {
+                Game.Instance.Goal();
+            }
         }
 
         UpdateMarker();
@@ -134,14 +144,17 @@ public class Player : MonoBehaviour
         m_UpMarker.anchoredPosition = new Vector2(pos.x - Screen.width / 2, -25f);
     }
 
-    public void ReleaseBall()
+    public void ReleaseBall(bool restorePhysics = true)
     {
         if (HasBall)
         {
             m_Ball.Release();
             m_Ball.SetArrowVisibility(false);
-            StopCoroutine(RestorePhysics(0));
-            StartCoroutine(RestorePhysics(1f));
+            if (restorePhysics)
+            {
+                StopCoroutine(RestorePhysics(0));
+                StartCoroutine(RestorePhysics(1f));
+            }
             m_Ball = null;
         }
     }
@@ -151,6 +164,7 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(time);
         m_Movement.canMove = true;
         Physics2D.IgnoreCollision(m_OwnCollider, m_BallCollider, false);
+       // Game.Instance.PlayersIgnoreCollision(m_BallCollider, false);
         m_BallCollider = null;
     }
 
