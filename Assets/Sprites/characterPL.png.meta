@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5864324c18b96e14ea77224486b39190
+guid: f4002539ef0901b44952cf7611334c61
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,7 +104,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: characterUK_0
+      name: characterPL_0
       rect:
         serializedVersion: 2
         x: 0
@@ -112,20 +112,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 199bfa71bdd90a24cbd84d779fb253bb
-      internalID: 176634035
+      spriteID: d4858e3af085f6f43b62feac1d324d46
+      internalID: 2127517096
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: characterUK_1
+      name: characterPL_1
       rect:
         serializedVersion: 2
         x: 256
@@ -133,20 +133,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f93f43fa6a91094b901e7f4e02dcbad
-      internalID: 506833776
+      spriteID: 4eb4015782050984cb17ef33238078cc
+      internalID: 1823054914
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: characterUK_2
+      name: characterPL_2
       rect:
         serializedVersion: 2
         x: 512
@@ -154,20 +154,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87c55bb102b4e7d4ab19d42ed7874b8c
-      internalID: -1010977401
+      spriteID: 49739b648d249574291b402a8558f008
+      internalID: -2000473986
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: characterUK_3
+      name: characterPL_3
       rect:
         serializedVersion: 2
         x: 768
@@ -175,20 +175,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 648049751bf17b842bb1d53541fb3ccc
-      internalID: 376573849
+      spriteID: e37390e98ed82e141a410dce71c81649
+      internalID: 272383612
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: characterUK_4
+      name: characterPL_4
       rect:
         serializedVersion: 2
         x: 1024
@@ -196,20 +196,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 346457f0597f844458f36b49c76ad3d5
-      internalID: 1787547135
+      spriteID: 9ec245d7cda7e844faaf16ee3885bf58
+      internalID: -1171336303
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: characterUK_5
+      name: characterPL_5
       rect:
         serializedVersion: 2
         x: 1280
@@ -217,20 +217,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ffd10a04b59bfc478b0160a18df32be
-      internalID: 792558828
+      spriteID: 87b958c9ce41ab349902f54fa606a3c5
+      internalID: 1581043507
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: characterUK_6
+      name: characterPL_6
       rect:
         serializedVersion: 2
         x: 0
@@ -238,20 +238,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af8f6910f70f1ea4c8c8f9393da9f59a
-      internalID: 1053599346
+      spriteID: 1998ece0df6760d41915ce750c668100
+      internalID: -544307651
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: characterUK_7
+      name: characterPL_7
       rect:
         serializedVersion: 2
         x: 256
@@ -259,20 +259,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b369b7fb255a4284db1d68879f2b4d66
-      internalID: 916316445
+      spriteID: a93d8c4f872dabd42a0a854b733b2eb8
+      internalID: 537180471
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: characterUK_8
+      name: characterPL_8
       rect:
         serializedVersion: 2
         x: 512
@@ -280,20 +280,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab1886e00eef2724f8d121f83a62440a
-      internalID: 2105848194
+      spriteID: 935b75ca7b4badc4cadb16d13b3901ca
+      internalID: -308706307
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: characterUK_9
+      name: characterPL_9
       rect:
         serializedVersion: 2
         x: 768
@@ -301,20 +301,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0f79c1753d306e42bf84bbb38cee931
-      internalID: -1776430446
+      spriteID: 6a3a2e8c3f356dc419181668d301cb37
+      internalID: 2080870133
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: characterUK_10
+      name: characterPL_10
       rect:
         serializedVersion: 2
         x: 1024
@@ -322,20 +322,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e87e268e9d5c4134b93e0daccbbf4c08
-      internalID: -1810419100
+      spriteID: caff5c7328489684d8b00d421c703456
+      internalID: -1238877970
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: characterUK_11
+      name: characterPL_11
       rect:
         serializedVersion: 2
         x: 1280
@@ -343,20 +343,20 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: deba55456b1483d4ba0855fd12b30e4f
-      internalID: -564432359
+      spriteID: 5006df5d3a5e4394e9ed5edb43f310ac
+      internalID: 1756660000
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: characterUK_12
+      name: characterPL_12
       rect:
         serializedVersion: 2
         x: 1536
@@ -364,224 +364,14 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 354f75183cc4e0542ad45b64684403da
-      internalID: -1196151288
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: characterUK_13
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1291
-        width: 276
-        height: 232
-      alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad6c8f31a2973af4fbd9658cd183f8e3
-      internalID: 1639142822
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: characterUK_14
-      rect:
-        serializedVersion: 2
-        x: 282
-        y: 1289
-        width: 269
-        height: 234
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 69529f66ccb9f274cb73d0e77c967f5b
-      internalID: -1785133223
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: characterUK_15
-      rect:
-        serializedVersion: 2
-        x: 576
-        y: 1295
-        width: 273
-        height: 232
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4cc3f6e7dc256254bb07cc333b5f63b3
-      internalID: 59598069
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: characterUK_16
-      rect:
-        serializedVersion: 2
-        x: 866
-        y: 1297
-        width: 269
-        height: 234
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 403738931e120624d8f36b009858b841
-      internalID: 2052911013
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: characterUK_17
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 1036
-        width: 255
-        height: 228
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c09225a5da448c642abb0d370d07e9f0
-      internalID: 1723635843
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: characterUK_18
-      rect:
-        serializedVersion: 2
-        x: 276
-        y: 1032
-        width: 255
-        height: 228
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e3b2181a171514646a36147bbbfa332a
-      internalID: 2116875730
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: characterUK_19
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 786
-        width: 253
-        height: 226
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8323916a81db71241824d899421df1e7
-      internalID: 1109054953
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: characterUK_20
-      rect:
-        serializedVersion: 2
-        x: 263
-        y: 788
-        width: 253
-        height: 226
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 81fb5de0482b9b346bc3ecf8f42c37c9
-      internalID: 2090958013
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: characterUK_21
-      rect:
-        serializedVersion: 2
-        x: 56
-        y: 526
-        width: 168
-        height: 227
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 53104e126a61d764ea356c2a5f4efbfb
-      internalID: -185282892
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: characterUK_22
-      rect:
-        serializedVersion: 2
-        x: 293
-        y: 523
-        width: 185
-        height: 227
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7f4522b99b1751d40baa6b6e1d172d6d
-      internalID: 311768483
+      spriteID: e1a6d146a4d35254a92cef17677b0e65
+      internalID: 1630468472
       vertices: []
       indices: 
       edges: []
@@ -597,29 +387,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      characterUK_19: 2116875730
-      characterUK_13: -1126287555
-      characterUK_7: 916316445
-      characterUK_22: -185282892
-      characterUK_5: 792558828
-      characterUK_0: 176634035
-      characterUK_10: -1810419100
-      characterUK_8: 2105848194
-      characterUK_21: 2090958013
-      characterUK_16: 59598069
-      characterUK_1: 506833776
-      characterUK_6: 1053599346
-      characterUK_12: -1196151288
-      characterUK_18: 1723635843
-      characterUK_15: -1785133223
-      characterUK_3: 376573849
-      characterUK_9: -1776430446
-      characterUK_11: -564432359
-      characterUK_14: 1639142822
-      characterUK_2: -1010977401
-      characterUK_20: 1109054953
-      characterUK_4: 1787547135
-      characterUK_17: 2052911013
+      characterPL_2: -2000473986
+      characterPL_3: 272383612
+      characterPL_9: 2080870133
+      characterPL_11: 1756660000
+      characterPL_5: 1581043507
+      characterPL_4: -1171336303
+      characterPL_10: -1238877970
+      characterPL_6: -544307651
+      characterPL_7: 537180471
+      characterPL_0: 2127517096
+      characterPL_12: 1630468472
+      characterPL_8: -308706307
+      characterPL_1: 1823054914
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

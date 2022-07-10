@@ -80,6 +80,7 @@ public class Movement : MonoBehaviour
       //  if (collision.onGround)
       //  {
             Jump(Vector2.up, false);
+        playerAnimator.SetTrigger("jump");
       //  }
 
 
@@ -152,6 +153,15 @@ public class Movement : MonoBehaviour
         {
             currentMovementSpeed = dashSpeed;
             canDash = false;
+
+            if (!collision.onGround && rb.velocity.x > 0)
+            {
+                playerAnimator.SetTrigger("dashRight");
+            }
+            else if (!collision.onGround && rb.velocity.x < 0)
+            {
+                playerAnimator.SetTrigger("dashLeft");
+            }
 
             StartCoroutine(DashCooldownCounter());
             StartCoroutine(DashLengthCounter());
