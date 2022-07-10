@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
 
 public class Game : MonoBehaviour
 {
@@ -30,6 +31,26 @@ public class Game : MonoBehaviour
     private Vector3 m_GoalPosition;
     [SerializeField] private ParallaxController m_Parallax;
 
+    [Header("UI")]
+    [SerializeField] private TextMeshProUGUI m_UICombo;
+    public TextMeshProUGUI UICombo => m_UICombo;
+    [SerializeField] private TextMeshProUGUI m_UICash;
+    public TextMeshProUGUI UICash => m_UICash;
+    [SerializeField] private TextMeshProUGUI m_UITime;
+    public TextMeshProUGUI UITime => m_UITime;
+
+    [SerializeField] private TextMeshProUGUI m_UICalc;
+    public TextMeshProUGUI UICalc => m_UICalc;
+
+
+    [SerializeField] private GameObject m_GameOverPanel;
+    [SerializeField] private TextMeshProUGUI m_Summary;
+
+    public float timer = 90f;
+
+    [SerializeField] private GameObject m_UIGoalPanel;
+    public GameObject UIGoalPanel => m_UIGoalPanel;
+
     private Sequence m_GoalSequence;
     public bool IsGoal;
 
@@ -38,6 +59,36 @@ public class Game : MonoBehaviour
         m_GoalPosition = m_GoalPoint.position;
         Physics2D.IgnoreCollision(m_Player1.OwnCollider, m_Player2.OwnCollider, true);
         SwitchTurns();
+        SetUICash(0);
+        SetUICombo(0);
+        SetUITimeLeft(90);
+        SetUIGoalVisibility(false);
+  
+    }
+    public int Cash;
+    public void SetUICash(int cash)
+    {
+        m_UICash.SetText("Cash: " + cash + "€");
+    }
+
+    public void SetUICombo(int combo)
+    {
+        m_UICombo.SetText("Combo: " + combo);
+    }
+
+    public void SetUITimeLeft(int time)
+    {
+        m_UITime.SetText("Time Left: " + time);
+    }
+
+    public void SetCalc(int combo, float height)
+    {
+        m_UICalc.SetText(combo + " x " + height + "m = " + (combo * height) + "€");
+    }
+
+    public void SetUIGoalVisibility(bool val)
+    {
+        m_UIGoalPanel.SetActive(val);
     }
 
     public void SwitchTurns()
@@ -68,7 +119,7 @@ public class Game : MonoBehaviour
     public void Goal()
     {
         IsGoal = true;
-
+        float ballHeight = Mathf.Round(m_Ball.transform.position.y);
         if(m_GoalSequence == null)
         {
             m_Ball.transform.localScale = Vector3.one;
@@ -100,11 +151,18 @@ public class Game : MonoBehaviour
         m_GoalSequence.AppendCallback(() =>
         {
             // ADD GOAL SOUND HERE
+
+            SetUIGoalVisibility(true);
+            SetCalc((int)m_Ball.AppliedForce, Mathf.Max(0, ballHeight));
+            Cash += (int)(m_Ball.AppliedForce * Mathf.Max(0, ballHeight));
+            SetUICash(Cash);
+            SetUICombo(0);
         });
         m_GoalSequence.AppendInterval(3f);
         m_GoalSequence.Append(m_Ball.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.Linear));
         m_GoalSequence.AppendCallback(() =>
         {
+            SetUIGoalVisibility(false);
             m_Player1.Movement.canMove = true;
             m_Player2.Movement.canMove = true;
             m_Ball.Release();
@@ -114,34 +172,57 @@ public class Game : MonoBehaviour
 
         m_GoalSequence.Play();
     }
+    public float yPos;
+    public bool isGameOver;
 
-
+    public void GameOver()
+    {
+        isGameOver = true;
+        m_GameOverPanel.SetActive(true);
+        m_Summary.SetText("You've earned " + Cash + "€\n Press R to try again!");
+        m_Player1.Movement.canMove = false;
+        m_Player2.Movement.canMove = false;
+    }
     public void Update()
     {
-        float yPos = 1f;
-        float p1Pos = m_Player1.transform.position.y;
-        float p2Pos = m_Player2.transform.position.y;
-        if (p1Pos < 1f && p2Pos < 1f)
+        if (!isGameOver)
         {
+            timer -= Time.deltaTime;
+            if (timer < 0)
+            {
+                timer = 0;
+                GameOver();
+            }
+            SetUITimeLeft(Mathf.RoundToInt(timer));
             yPos = 1f;
+            float p1Pos = m_Player1.transform.position.y;
+            float p2Pos = m_Player2.transform.position.y;
+            if (p1Pos < 1f && p2Pos < 1f)
+            {
+                yPos = 1f;
+            }
+            else if (p2Pos > p1Pos)
+            {
+                yPos = m_Player2.transform.position.y;
+            }
+            else if (p1Pos > p2Pos)
+            {
+                yPos = m_Player1.transform.position.y;
+            }
+            if (IsGoal)
+            {
+                yPos = Mathf.Max(m_Ball.transform.position.y, 1f);
+            }
+            if (yPos >= 1f)
+            {
+                m_MainCamera.transform.position = new Vector3(m_MainCamera.transform.position.x, yPos - 1f, m_MainCamera.transform.position.z);
+            }
+            m_Parallax.UpdateParallax(yPos);
         }
-        else if (p2Pos > p1Pos)
+        if(Input.GetKeyDown(KeyCode.R))
         {
-            yPos = m_Player2.transform.position.y;
+            UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
         }
-        else if (p1Pos > p2Pos)
-        {
-            yPos = m_Player1.transform.position.y;
-        }
-        if(IsGoal)
-        {
-            yPos = Mathf.Max(m_Ball.transform.position.y, 1f);
-        }
-        if (yPos >= 1f)
-        {
-            m_MainCamera.transform.position = new Vector3(m_MainCamera.transform.position.x, yPos - 1f, m_MainCamera.transform.position.z);
-        }
-        m_Parallax.UpdateParallax(yPos);
     }
 
 }

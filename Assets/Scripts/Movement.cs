@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
     public Collision Collision => collision;
     private Rigidbody2D rb;
     [SerializeField] private Animator playerAnimator;
+    public Animator Animator => playerAnimator;
 
     public string HorizontalAxis;
     public string VerticalAxis;

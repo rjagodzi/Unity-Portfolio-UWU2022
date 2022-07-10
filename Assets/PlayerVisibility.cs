@@ -11,10 +11,12 @@ public class PlayerVisibility : MonoBehaviour
     {
         if (up)
         {
+            if(m_UpMarker!=null)
             m_UpMarker.gameObject.SetActive(value);
         }
         else
         {
+            if(m_DownMarker!=null)
             m_DownMarker.gameObject.SetActive(value);
         }
     }
@@ -27,11 +29,11 @@ public class PlayerVisibility : MonoBehaviour
 
     public void OnBecameInvisible()
     {
-       // if (m_Ball.transform.position.y < transform.position.y)
-      //  {
-     //       SetMarkerVisibility(true, true);
-      //  }
-      //  else
+        // if (m_Ball.transform.position.y < transform.position.y)
+        //  {
+        //       SetMarkerVisibility(true, true);
+        //  }
+        //  else
         {
             SetMarkerVisibility(false, true);
         }

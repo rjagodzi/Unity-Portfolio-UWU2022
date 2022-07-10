@@ -106,6 +106,7 @@ public class Player : MonoBehaviour
             }
             else
             {
+                m_Movement.Animator.SetTrigger("leftKick");
                 m_Ball.Kick();
                 StopCoroutine(DelayedGravity(0));
                 ReleaseBall();
