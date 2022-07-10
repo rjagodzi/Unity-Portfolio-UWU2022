@@ -73,7 +73,6 @@ public class Player : MonoBehaviour
     {
         if(collision.collider.gameObject.layer == LayerMask.NameToLayer("Ball"))
         {
-            Debug.Log("A:" + collision.collider.name + "  B:" + collision.otherCollider.name);
             m_RigidBody.bodyType = RigidbodyType2D.Kinematic;
             StopCoroutine(DelayedGravity(0));
             StartCoroutine(DelayedGravity(0.5f));

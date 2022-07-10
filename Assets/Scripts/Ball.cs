@@ -97,6 +97,8 @@ public class Ball : MonoBehaviour
         m_RigidBody.velocity = Vector2.zero;
         m_AppliedForce += force;
 
+        Game.Instance.SwitchTurns();
+
         m_SpriteTransform.DOScaleY(Mathf.Max(m_SquashLimit, 1f-(m_SquashStep * m_AppliedForce)), Mathf.Min(m_BaseDelay * m_AppliedForce, m_DelayLimit))
                          .SetEase(m_EaseCurve)
                          .OnComplete(() => { m_SpriteTransform.localScale = Vector3.one; });
